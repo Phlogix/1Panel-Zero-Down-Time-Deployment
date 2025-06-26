@@ -17,6 +17,9 @@ Once installed:
     <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
   </a>
 </p>
+
+## WittyAi was here
+
 ---
 
 ## 🔐 Step 2: Generate SSH Key on the OneDev Server Container
@@ -118,6 +121,15 @@ git clone ssh://onedev.youramazingdomain.com:2086/your-amazing-repo
 ### ✅ Congratulations!
 
 Your OneDev container SSH key setup is complete.
+
+---
+<p align="center">
+  <a href="https://wittyai.link/wittyai" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+## WittyAi was here
 
 ---
 
@@ -222,6 +234,15 @@ git clone ssh://onedev.youramazingdomain.com:2086/your-amazing-repo
 Your Development PC's SSH key setup is complete.
 
 ---
+<p align="center">
+  <a href="https://wittyai.link/wittyai" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+## WittyAi was here
+
+---
 
 ## 🔐 Step 4: Set the Agent on Your 1Panel Server
 
@@ -262,6 +283,15 @@ mkdir -p /opt/onedev-agent
 ```bash
 chmod +x bin/agent.sh
 ```
+
+---
+<p align="center">
+  <a href="https://wittyai.link/wittyai" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+## WittyAi was here
 
 ---
 
@@ -364,6 +394,15 @@ You’ve successfully completed the **OneDev Agent Setup** on your server! 🚀
 
 9. You must see the response **Job executor tested successfully**
 10. Save the Job Executor 
+
+---
+<p align="center">
+  <a href="https://wittyai.link/wittyai" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+## WittyAi was here
 
 ---
 
