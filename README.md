@@ -12,13 +12,16 @@ Once installed:
 - Import all your project repositories from GitHub, GitLab, etc.
 
 ---
+
 <p align="center">
-  <a href="https://wittyai.link/wittyai" target="_blank">
+  <a href="https://your-destination-url.com" target="_blank">
     <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
   </a>
 </p>
 
-## WittyAi was here
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
 
 ---
 
@@ -123,13 +126,16 @@ git clone ssh://onedev.youramazingdomain.com:2086/your-amazing-repo
 Your OneDev container SSH key setup is complete.
 
 ---
+
 <p align="center">
-  <a href="https://wittyai.link/wittyai" target="_blank">
+  <a href="https://your-destination-url.com" target="_blank">
     <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
   </a>
 </p>
 
-## WittyAi was here
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
 
 ---
 
@@ -234,13 +240,16 @@ git clone ssh://onedev.youramazingdomain.com:2086/your-amazing-repo
 Your Development PC's SSH key setup is complete.
 
 ---
+
 <p align="center">
-  <a href="https://wittyai.link/wittyai" target="_blank">
+  <a href="https://your-destination-url.com" target="_blank">
     <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
   </a>
 </p>
 
-## WittyAi was here
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
 
 ---
 
@@ -285,13 +294,16 @@ chmod +x bin/agent.sh
 ```
 
 ---
+
 <p align="center">
-  <a href="https://wittyai.link/wittyai" target="_blank">
+  <a href="https://your-destination-url.com" target="_blank">
     <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
   </a>
 </p>
 
-## WittyAi was here
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
 
 ---
 
@@ -378,6 +390,18 @@ You’ve successfully completed the **OneDev Agent Setup** on your server! 🚀
 
 ---
 
+<p align="center">
+  <a href="https://your-destination-url.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
+
+---
+
 ## 🔐 Step 5: Create a Job Executor on OneDev
 1. Go to `onedev.youramazingdomain.com`
 2. Navigate to **Administration → Job Executor**
@@ -396,13 +420,16 @@ You’ve successfully completed the **OneDev Agent Setup** on your server! 🚀
 10. Save the Job Executor 
 
 ---
+
 <p align="center">
-  <a href="https://wittyai.link/wittyai" target="_blank">
+  <a href="https://your-destination-url.com" target="_blank">
     <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
   </a>
 </p>
 
-## WittyAi was here
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
 
 ---
 
@@ -420,7 +447,19 @@ mkdir -p your-1Panel-folder-path/apps/overlays
 
 **Use overlays folder for your development environment and production envriment files which needs replaced after cloning**
 
-___
+---
+
+<p align="center">
+  <a href="https://your-destination-url.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
+
+---
 
 ## 🔐 Step 7: create necessary folder paths such as temp-git and overlays for your websites
 
@@ -496,6 +535,20 @@ done
 echo "🎉 Deployment completed successfully to: $TARGET_DIR"
 
 ```
+
+---
+
+<p align="center">
+  <a href="https://your-destination-url.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/Devinsomnia/ads/main/PNG/wittyai.png" alt="WittyAI" width="150" height="150">
+  </a>
+</p>
+
+<p align="center">
+  <strong>WittyAi was here</strong>
+</p>
+
+---
 
 ### ✅ Congratulations!
 
