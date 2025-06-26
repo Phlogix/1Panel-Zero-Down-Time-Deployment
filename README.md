@@ -340,6 +340,121 @@ sudo systemctl status onedev
 
 You’ve successfully completed the **OneDev Agent Setup** on your server! 🚀
 
+---
+
+## 🔐 Step 5: Create a Job Executor on OneDev
+1. Go to `onedev.youramazingdomain.com`
+2. Navigate to **Administration → Job Executor**
+3. Click **Add Executor**
+4. Choose **Remote Sheel Executor**
+5. Give a name like **deploy, deployment, zero-down-time-deployment**
+6. Set your agent selector theme like this **"Name" is "Your Server's Hostname"** you will be able to choose your server hostname there it is automatically fetch that info from the agent section.
+7. Click **Test**
+8. test it with
+
+```bash
+/opt/onedev-agent
+```
+
+9. You must see the response **Job executor tested successfully**
+10. Save the Job Executor 
+
+---
+
+## 🔐 Step 6: create necessary folder paths such as temp-git and overlays for your websites
+
+```bash
+mkdir -p your-1Panel-folder-path/apps/temp-git
+```
+
+and
+
+```bash
+mkdir -p your-1Panel-folder-path/apps/overlays 
+```
+
+**Use overlays folder for your development environment and production envriment files which needs replaced after cloning**
+
+___
+
+## 🔐 Step 7: create necessary folder paths such as temp-git and overlays for your websites
+
+1. Go to `onedev.youramazingdomain.com`
+2. Navigate to **Projects → Choose your amazing repo**
+3. Create **.onedev-buildspec.yml**
+4. Click  **Add new**
+5. Name it **Deploy to Server**
+6. On the section of Job Executor write your job executor name which did you named previously **deploy, deployment, zero-down-time-deployment**
+7. Come to the steps section press plus icon
+8. Search for execute commands and choose it 
+9. Give a name you can use your repo's name
+10. Disable run in container
+11. Interpreter must be selected default
+12. Condition must be selected successful
+13. Add your codes in Commands section find the example setup below
+
+```bash
+#!/bin/bash
+
+echo "🚀 Zero Downtime Deployment has started..."
+
+# === CONFIGURATION ===
+TEMP_DIR="your-1Panel-folder-path/apps/temp-git"
+REPO_NAME="your-amazing-repo"
+TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
+CLONE_DIR="$TEMP_DIR/${REPO_NAME}-${TIMESTAMP}"
+TARGET_DIR="your-1Panel-folder-path/apps/openresty/openresty/www/sites/your-amazing-website.com/index"
+REPO_URL="ssh://onedev.youramazingdomain.com:2086/your-amazing-repo"
+MAX_VERSIONS=3
+
+# === ENSURE TEMP DIR EXISTS ===
+echo "📁 Ensuring temp directory exists: $TEMP_DIR"
+mkdir -p "$TEMP_DIR"
+
+# === CLONE REPO WITH TIMESTAMP ===
+echo "📥 Cloning into: $CLONE_DIR"
+git clone --depth=1 "$REPO_URL" "$CLONE_DIR"
+
+# === VERIFY CLONE SUCCESS ===
+if [ ! -d "$CLONE_DIR" ]; then
+  echo "❌ Clone failed. Aborting deployment."
+  exit 1
+fi
+
+# === REMOVE UNWANTED DOTFILES FROM TARGET (KEEP .env) ===
+echo "🧹 Removing unwanted hidden files from live directory (excluding .env)..."
+
+# Remove dotfiles (files) except .env
+find "$TARGET_DIR" -maxdepth 1 -type f -name ".*" ! -name ".env" -exec rm -f {} \;
+
+# Remove dotfolders (directories) except .env (not needed if .env is a file)
+find "$TARGET_DIR" -maxdepth 1 -type d -name ".*" ! -name "." ! -name ".." ! -name ".env" -exec rm -rf {} \;
+
+
+# === SYNC TO LIVE DIRECTORY (EXCLUDE DOTFILES FROM SOURCE) ===
+echo "📂 Syncing clean files to live directory..."
+rsync -av --delete \
+  --exclude='.*' \
+  --exclude='*/.git/' \
+  "$CLONE_DIR"/ "$TARGET_DIR"/
+
+# === CLEANUP OLD CLONES (KEEP ONLY LAST 3) ===
+echo "🗑️ Checking for old versions to delete..."
+cd "$TEMP_DIR" || exit 1
+
+ls -dt ${REPO_NAME}-* 2>/dev/null | tail -n +$((MAX_VERSIONS + 1)) | while read -r old_dir; do
+  echo "🗑️ Removing old clone: $TEMP_DIR/$old_dir"
+  rm -rf "$TEMP_DIR/$old_dir"
+done
+
+# === DONE ===
+echo "🎉 Deployment completed successfully to: $TARGET_DIR"
+
+```
+
+### ✅ Congratulations!
+
+Now you are set an independent CI/CD envirounment on your private git system and server which allows you to do zero-down-time deployment
 
 
 
