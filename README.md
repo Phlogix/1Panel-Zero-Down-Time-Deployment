@@ -99,6 +99,16 @@ cat ~/.ssh/onedev-container.pub
 
 ---
 
+### 🔑 9. Clone your repo without auth through your key
+
+`Do not forget to update your port`
+
+```bash
+git clone ssh://onedev.youramazingdomain.com:2086/your-amazing-repo
+```
+
+---
+
 ### ✅ Congratulations!
 
 Your OneDev container SSH key setup is complete.
@@ -191,11 +201,147 @@ cat ~/.ssh/development-pc.pub
 
 ---
 
+### 🔑 9. Clone your repo without auth through your key
+
+`Do not forget to update your port`
+
+```bash
+git clone ssh://onedev.youramazingdomain.com:2086/your-amazing-repo
+```
+
+---
+
 ### ✅ Congratulations!
 
 Your Development PC's SSH key setup is complete.
 
 ---
+
+## 🔐 Step 4: Set the Agent on Your 1Panel Server
+
+### 🧭 1. Navigate to OneDev Dashboard
+
+1. Go to `onedev.youramazingdomain.com`
+2. Go to **Administration → Agents → ➕ (Plus Icon)**  
+3. Select the tab **Run on Bare Metal / Virtual Machine**
+4. Download either `agent.zip` or `agent.tar.gz`
+
+---
+
+### 🖥️ 2. SSH into Your Server
+
+Make sure you are logged in with root privileges.
+
+---
+
+### 🔑 3. Create Folder for Your Agent
+
+```bash
+mkdir -p /opt/onedev-agent
+```
+
+---
+
+### 📁 4. Upload & Extract Agent Files
+
+1. Connect to your server using your preferred FTP application  
+2. Navigate to: `/opt/onedev-agent`  
+3. Upload and extract `agent.zip` or `agent.tar.gz`  
+4. Ensure the contents are located in `/opt/onedev-agent`
+
+---
+
+### 🧾 5. Make the Agent Script Executable
+
+```bash
+chmod +x bin/agent.sh
+```
+
+---
+
+## 🔐 Step 5: Create a Linux Service for the OneDev Agent
+
+### 🛠️ 1. Create the Service File
+
+```bash
+sudo nano /etc/systemd/system/onedev.service
+```
+
+---
+
+### 📝 2. Add the Following Content
+
+```ini
+[Unit]
+Description=OneDev Agent Service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/onedev-agent
+ExecStart=/opt/onedev-agent/bin/agent.sh start
+ExecStop=/opt/onedev-agent/bin/agent.sh stop
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=onedev-agent
+
+[Install]
+WantedBy=multi-user.target
+```
+
+> Press `Ctrl + X`, then press `Y` to save and exit.
+
+---
+
+### 🔄 3. Reload the Daemon
+
+```bash
+sudo systemctl daemon-reload
+```
+
+---
+
+### ▶️ 4. Start the Service
+
+```bash
+sudo systemctl start onedev
+```
+
+---
+
+### 📌 5. Enable the Service on Boot
+
+```bash
+sudo systemctl enable onedev
+```
+
+---
+
+### 📊 6. Check Service Status
+
+```bash
+sudo systemctl status onedev
+```
+
+---
+
+### 🖥️ 7. Verify Agent in OneDev
+
+1. Go to `onedev.youramazingdomain.com`
+2. Navigate to **Administration → Agents**
+3. Your agent should appear with your server's **hostname**, **IP address**, and **Status: Online**
+
+---
+
+### ✅ Congratulations!
+
+You’ve successfully completed the **OneDev Agent Setup** on your server! 🚀
+
+
+
 
 Then go to your OneDev web interface:
 
