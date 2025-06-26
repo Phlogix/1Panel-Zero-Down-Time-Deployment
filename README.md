@@ -60,7 +60,7 @@ nano ~/.ssh/config
 Then add the following configuration:
 
 ```bash
-Host your-onedev-url.com
+Host onedev.youramazingdomain.com
     Port 2086  # Replace with your actual SSH port
     User onedev-container
     IdentityFile ~/.ssh/onedev-container
@@ -74,7 +74,7 @@ Host your-onedev-url.com
 Verify the SSH connection:
 
 ```bash
-ssh -T your-onedev-url.com
+ssh -T onedev.youramazingdomain.com
 ```
 
 ---
@@ -91,7 +91,7 @@ cat ~/.ssh/onedev-container.pub
 
 ### 🔑 8. Add the SSH Key to Your OneDev Account
 
-1. Go to `your-onedev-url.com`
+1. Go to `onedev.youramazingdomain.com`
 2. Click **Profile → SSH Keys**
 3. Click the ➕ icon
 4. Paste the copied SSH key
@@ -103,6 +103,99 @@ cat ~/.ssh/onedev-container.pub
 
 Your OneDev container SSH key setup is complete.
 
+---
+
+## 🔐 Step 3: Generate SSH Key on the Device where will you make development
+
+### 📥 1. Login to 1Panel
+
+Open the 1Panel web portal, then navigate to:
+
+**Containers → OneDev-Container → Terminal → Connect**
+
+---
+
+### 🔧 2. Generate an SSH Key
+
+Run the following command in the terminal to create a new SSH key:
+
+```bash
+ssh-keygen -t ed25519 -C "your@email.com" -f ~/.ssh/development-pc
+```
+
+---
+
+### 🔃 3. Start the SSH Agent
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+---
+
+### ➕ 4. Add Your SSH Key to the Agent
+
+```bash
+ssh-add ~/.ssh/development-pc
+```
+
+---
+
+### ⚙️ 5. Configure SSH Settings
+
+Open the SSH config file:
+
+```bash
+nano ~/.ssh/config
+```
+
+Then add the following configuration:
+
+```bash
+Host onedev.youramazingdomain.com
+    Port 2086  # Replace with your actual SSH port
+    User development-pc
+    IdentityFile ~/.ssh/development-pc
+    IdentitiesOnly yes
+```
+
+---
+
+### 🚀 6. Initialize Git Connection
+
+Verify the SSH connection:
+
+```bash
+ssh -T onedev.youramazingdomain.com
+```
+
+---
+
+### 📋 7. Copy Your Public SSH Key
+
+Display the public key:
+
+```bash
+cat ~/.ssh/development-pc.pub
+```
+
+---
+
+### 🔑 8. Add the SSH Key to Your OneDev Account
+
+1. Go to `onedev.youramazingdomain.com`
+2. Click **Profile → SSH Keys**
+3. Click the ➕ icon
+4. Paste the copied SSH key
+5. Save
+
+---
+
+### ✅ Congratulations!
+
+Your Development PC's SSH key setup is complete.
+
+---
 
 Then go to your OneDev web interface:
 
