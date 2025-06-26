@@ -12,6 +12,8 @@ Once installed:
 - Import all your project repositories from GitHub, GitLab, etc.
 
 ---
+<img src="https://raw.githubusercontent.com/Devinsomnia/ads/blob/main/PNG/wittyai.png" alt="Youtube" width="150" height="150">
+---
 
 ## 🔐 Step 2: Generate SSH Key on the OneDev Server Container
 
