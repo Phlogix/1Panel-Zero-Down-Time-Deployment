@@ -536,6 +536,10 @@ echo "🎉 Deployment completed successfully to: $TARGET_DIR"
 
 ```
 
+### ✅ Congratulations!
+
+Now you are set an independent CI/CD envirounment on your private git system and server which allows you to do zero-down-time deployment
+
 ---
 
 <p align="center">
@@ -550,68 +554,4 @@ echo "🎉 Deployment completed successfully to: $TARGET_DIR"
 
 ---
 
-### ✅ Congratulations!
 
-Now you are set an independent CI/CD envirounment on your private git system and server which allows you to do zero-down-time deployment
-
-
-
-Then go to your OneDev web interface:
-
-- Click your **profile picture**.
-- Go to **SSH KEYS**.
-- Click the **plus (+)** icon and **paste** your SSH key.
-
----
-
-## 🖥️ Step 3: Add Public Key to Your Deployment Target
-
-Now let’s tell your deployment target server to allow OneDev access via SSH.
-
-### On the Target Server:
-
-1. Open your terminal (or use **1Panel shell**).
-2. Edit the authorized keys file:
-
-```bash
-nano ~/.ssh/authorized_keys
-```
-
-3. Paste the contents of `id_ed25519.pub` (copied from OneDev).
-4. Save and exit (`CTRL+X`, then `Y`, then `Enter`).
-
-5. Set the correct file permissions:
-
-```bash
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/authorized_keys
-chown -R root:root ~/.ssh
-```
-
----
-
-## 🔍 Step 4: Check SSH Configuration on Target Server
-
-Open your SSH config:
-
-```bash
-sudo nano /etc/ssh/sshd_config
-```
-
-Ensure the following lines exist and are **not commented out**:
-
-```bash
-PubkeyAuthentication yes
-AuthorizedKeysFile .ssh/authorized_keys
-PasswordAuthentication yes  # Optional fallback
-```
-
-Restart the SSH service to apply the changes:
-
-```bash
-sudo systemctl restart ssh
-```
-
----
-
-✅ You're now ready to set up **CI/CD pipelines** inside OneDev for **zero downtime deployment** to your servers running on 1Panel.
