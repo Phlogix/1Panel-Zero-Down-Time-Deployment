@@ -579,9 +579,6 @@ Your organization now benefits from:
 
 This setup gives your team the power to ship faster, safer, and smarter—without vendor lock-in.
 
-
-
-
 ---
 
 <p align="center">
@@ -595,5 +592,24 @@ This setup gives your team the power to ship faster, safer, and smarter—withou
 </p>
 
 ---
+
+## 📬 Enterprise Consulting & Support
+
+Need a robust, secure CI/CD environment tailored to your organization's needs? 
+
+We offer **enterprise consulting**, including:
+
+- Custom CI/CD pipeline design (leveraging Agile methodologies and systems engineering expertise)
+- Secure infrastructure setup (certified in data protection, EU/UK GDPR, and TS EN 50600 standards)
+- Advanced networking integration (expertise in complex network design and management)
+- Big data & analytics optimization (skilled in managing and analyzing large datasets)
+- Leadership & team enablement (support with communication, mentoring, and collaboration strategies)
+- Version control solutions (proficient in Git and GitHub for effective code management)
+
+📩 **Contact us:**  
+For pricing and consultation based on your specific requirements, reach out to:
+
+**devinsomnia@wittyai.co.uk**
+
 
 
