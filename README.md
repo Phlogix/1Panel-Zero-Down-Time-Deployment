@@ -13,24 +13,96 @@ Once installed:
 
 ---
 
-## 🔐 Step 2: Generate SSH Key on the OneDev Server
+## 🔐 Step 2: Generate SSH Key on the OneDev Server Container
 
-Login to the **1Panel** web portal.
+### 📥 1. Login to 1Panel
 
-Navigate to:  
-**`Containers → OneDev-Container → Terminal → Connect`**
+Open the 1Panel web portal, then navigate to:
 
-Run the following command to generate your SSH key:
+**Containers → OneDev-Container → Terminal → Connect**
+
+---
+
+### 🔧 2. Generate an SSH Key
+
+Run the following command in the terminal to create a new SSH key:
 
 ```bash
-ssh-keygen -t ed25519 -C "onedev-deploy-key"
+ssh-keygen -t ed25519 -C "your@email.com" -f ~/.ssh/onedev-container
 ```
 
-After it's generated, copy your public key:
+---
+
+### 🔃 3. Start the SSH Agent
 
 ```bash
-cat ~/.ssh/id_ed25519.pub
+eval "$(ssh-agent -s)"
 ```
+
+---
+
+### ➕ 4. Add Your SSH Key to the Agent
+
+```bash
+ssh-add ~/.ssh/onedev-container
+```
+
+---
+
+### ⚙️ 5. Configure SSH Settings
+
+Open the SSH config file:
+
+```bash
+nano ~/.ssh/config
+```
+
+Then add the following configuration:
+
+```bash
+Host your-onedev-url.com
+    Port 2086  # Replace with your actual SSH port
+    User onedev-container
+    IdentityFile ~/.ssh/onedev-container
+    IdentitiesOnly yes
+```
+
+---
+
+### 🚀 6. Initialize Git Connection
+
+Verify the SSH connection:
+
+```bash
+ssh -T your-onedev-url.com
+```
+
+---
+
+### 📋 7. Copy Your Public SSH Key
+
+Display the public key:
+
+```bash
+cat ~/.ssh/onedev-container.pub
+```
+
+---
+
+### 🔑 8. Add the SSH Key to Your OneDev Account
+
+1. Go to `your-onedev-url.com`
+2. Click **Profile → SSH Keys**
+3. Click the ➕ icon
+4. Paste the copied SSH key
+5. Save
+
+---
+
+### ✅ Congratulations!
+
+Your OneDev container SSH key setup is complete.
+
 
 Then go to your OneDev web interface:
 
